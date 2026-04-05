@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: idp-demo
+  labels:
+    app: idp-demo
+    team: payments
+    env: dev

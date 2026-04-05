@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idp-demo
+  namespace: idp-demo
+  labels:
+    app: idp-demo
+    team: payments
+    env: dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: idp-demo
+  template:
+    metadata:
+      labels:
+        app: idp-demo
+        team: payments
+        env: dev
+    spec:
+      containers:
+        - name: idp-demo
+          image: nginx:1.25.0
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          securityContext:
+            runAsNonRoot: false
+            allowPrivilegeEscalation: false

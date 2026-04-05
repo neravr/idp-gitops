@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: idp-demo
+  namespace: idp-demo
+spec:
+  selector:
+    app: idp-demo
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
